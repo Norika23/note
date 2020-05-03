@@ -36,7 +36,7 @@
 
     <div class="form-group">
         <label for="title">Post Title</label>
-            <input type="text" class="form-control" name="title" value="<?php echo $post->title; ?>">
+            <input type="text" class="form-control" name="title" value="<?php echo $post->title; ?>" required>
     </div>
 
     <div class="form-group">

@@ -12,21 +12,20 @@
 
 <div class="container">
 
-        <div class="">
+<div class="col-md-9 offset-md-1 ">
             <?php foreach($posts as $post): ?>
             <h2><?php echo $post->title; ?></h2>
-
+<div class="col-md-9 offset-md-1 ">
                 <p class="float-right"><span class="glyphicon glyphicon-time"></span><?php echo $post->date; ?></p>
 
                 <a href="post.php?p_id=<?php echo $post_id; ?>"></a>
                 
                 
                 <p><?php echo $post->content; ?></p>
-                <a class="btn btn-primary float-right" href="post.php?p_id=<?php echo $post_id; ?>">Read More </a>
                 <br>
-<hr>
+<hr></div>
             <?php  endforeach; ?>
-        </div>
+        </div></div>
         <?php //include "includes/sidebar.php"; ?>
     </div>
 </div>

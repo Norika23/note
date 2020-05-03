@@ -12,7 +12,7 @@
         $post->title = $_POST['title'];
         $post->date = date('Y-m-d');
         //$post->image = $_POST['image'];
-        $post->content = $_POST['content'];
+        $post->content = $database->escape_string($_POST['content']);
         $post->tags = $_POST['tags'];
         $post->status = $_POST['status'];
 
@@ -35,7 +35,7 @@
 
     <div class="form-group">
         <label for="title">Post Title</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" required>
     </div>
 
     <div class="form-group">
@@ -79,15 +79,21 @@
             <input type="file" name="image">
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="post_tags">Post Tags</label>
             <input type="text" class="form-control" name="tags">
-    </div>
+    </div> -->
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="content">Post Content</label>
             <textarea class="form-control" name="content" id="body" cols="30" rows="10"></textarea>
-    </div>
+    </div> -->
+
+    <textarea id="editor" name="content" rows="8" cols="40">
+        </textarea>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
+
 
     <div class="form-group">
         <input class="btn btn-primary" type="submit" name="create" value="Publish Post">

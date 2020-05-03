@@ -9,24 +9,16 @@
 ?>
 
 <div class="container">
-
-        <div class="">
+    <div class="col-md-11">
             <?php foreach($posts as $post): ?>
-            <h3>
-                    <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post->title; ?></a>
-                </h3>
-
-                <p class="float-right"><span class="glyphicon glyphicon-time"></span><?php echo $post->date; ?></p>
-
-                <a href="post.php?p_id=<?php echo $post_id; ?>"></a>
-                
-                
-                <p><?php echo substr($post->content,0,70); ?>
-                <a class="btn btn-primary float-right" href="post.php?p_id=<?php echo $post_id; ?>">Read More </a></p>
+            <h4><a class="text-secondary" href="post.php?id=<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h4>
+                <!-- <p class="float-right"><?php echo $post->date; ?></p><br> -->
+                <!-- <p><?php echo htmlentities(substr($post->content,0,70)); ?> -->
+                <a class="btn btn-primary float-right" href="post.php?id=<?php echo $post->id; ?>">Read More </a></p>
                 <br>
-<hr>
+            <hr>
             <?php  endforeach; ?>
-        </div>
+            </div>
         <?php //include "includes/sidebar.php"; ?>
     </div>
 </div>
