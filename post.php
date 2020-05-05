@@ -12,26 +12,22 @@
 
 <div class="container">
 
-<div class="col-md-9 offset-md-1 ">
-            <?php foreach($posts as $post): ?>
-            <h2><?php echo $post->title; ?></h2>
-<div class="col-md-9 offset-md-1 ">
-                <p class="float-right"><span class="glyphicon glyphicon-time"></span><?php echo $post->date; ?></p>
-
+    <div class="col-md-10 offset-md-1 mt-5">
+        <?php foreach($posts as $post): ?>
+            <h2 class="text-secondary"><?php echo $post->title; ?></h2>
+            <p class="text-secondary float-right"><span class="glyphicon glyphicon-time"></span><?php echo $post->date; ?></p>
+                <div class="col-md-9 offset-md-1 mt-5">
                 <a href="post.php?p_id=<?php echo $post_id; ?>"></a>
-                
-                
-                <p><?php echo $post->content; ?></p>
-                <br>
-<hr></div>
-            <?php  endforeach; ?>
-        </div></div>
+
+                <?php include('includes/markdown/show_markdown_link.php') ?>
+                    
+                <div class="note_content markdown-body"><?php echo $post->content; ?></div>
+
+         <?php  endforeach; ?>
+                </div>
         <?php //include "includes/sidebar.php"; ?>
     </div>
 </div>
-
-
-
 
 
 <?php include('includes/footer.php') ?>

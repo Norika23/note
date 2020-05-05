@@ -12,8 +12,8 @@
         $post->title = $_POST['title'];
         $post->date = date('Y-m-d');
         //$post->image = $_POST['image'];
-        $post->content = $database->escape_string($_POST['content']);
-        $post->tags = $_POST['tags'];
+        $post->content = $_POST['content'];
+        // $post->tags = $_POST['tags'];
         $post->status = $_POST['status'];
 
 
@@ -24,9 +24,6 @@
     }
 
 ?>
-
-
-
 
 <div class="col-md-9">
 <h1>New Post</h1>
@@ -65,14 +62,13 @@
     </div>
 
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <select name="status" id="">
             <option value="draft">Post Status</option>
             <option value="published">Publish</option>
             <option value="draft">Draft</option>
         </select>
-
-    </div>
+    </div> -->
 
     <div class="form-group">
         <label for="post_image">Post Image</label>
@@ -89,19 +85,34 @@
             <textarea class="form-control" name="content" id="body" cols="30" rows="10"></textarea>
     </div> -->
 
-    <textarea id="editor" name="content" rows="8" cols="40">
+    <!-- <textarea id="editor" name="content" rows="8" cols="40">
         </textarea>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"> -->
 
-
+        <?php include('includes/markdown_editor/editor.php') ?>
+    <textarea name="content" id="kv-01" rows="15" class="form-control markdown" required title="Krajee Markdown Editor" data-use-twemoji="true"></textarea>
 
     <div class="form-group">
         <input class="btn btn-primary" type="submit" name="create" value="Publish Post">
-    </div>
+        <a class="btn btn-primary float-right" href="includes/markdown_editor/examples/bs4.html">Examples</a>
+</form>
+
+</div>
+
+
+
+<form>
 
 </form>
 
 
-</div>
+
+
+
+
+
+
+
+
 
 <?php include('includes/admin_footer.php') ?>

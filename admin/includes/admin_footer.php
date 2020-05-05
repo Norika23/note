@@ -5,9 +5,9 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
 <script src="js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-<script>
+<!-- <script>
     var simplemde = new SimpleMDE({ element: document.getElementById("editor") });
-</script>
+</script> -->
 
 </body>
 </html>

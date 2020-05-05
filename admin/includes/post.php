@@ -3,7 +3,7 @@
 class Post extends Db_object{
 
     protected static $db_table = "posts";
-    protected static $db_table_fields = array('category_id', 'sub_category_id', 'title', 'date', 'image', 'content', 'tags', 'comment', 'status', 'view_counts');
+    protected static $db_table_fields = array("category_id", "sub_category_id", "title", "date", "image", "content", "tags", "comment", "status", "view_counts");
     public $id;
     public $category_id;
     public $sub_category_id;

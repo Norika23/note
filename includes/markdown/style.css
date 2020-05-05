@@ -1,0 +1,13 @@
+ 
+.markdown-body p code {
+  color: #d14;
+}
+
+.markdown-body blockquote {
+  border-color: #8c618d;
+
+}
+
+.markdown-body pre {
+  border: 1px solid #ddd;
+}

@@ -182,7 +182,7 @@
 
         global $database;
 
-        $properties = $this->properties();
+        $properties = $this->clean_properties();
 
         $properties_pairs = array();
 

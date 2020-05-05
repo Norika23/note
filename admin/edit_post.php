@@ -1,6 +1,5 @@
 <?php include('includes/admin_header.php') ?>
 <?php include('includes/admin_navbar.php') ?>
-
 <?php
 
     $post = Post::find_by_id($_GET['id']);
@@ -27,10 +26,8 @@
 ?>
 
 
-
-
 <div class="col-md-9">
-<h1>New Post</h1>
+<h1>Edit Post</h1>
 
 <form action="" method="post" enctype="multipart/form-data">
 
@@ -92,13 +89,19 @@
             <input type="text" class="form-control" name="tags">
     </div> -->
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="content">Post Content</label>
-            <textarea class="form-control" name="content" id="body" cols="30" rows="10"><?php echo $post->content; ?></textarea>
-    </div>
+            <textarea class="form-control" name="content" id="body" cols="30" rows="10"><?php //echo $post->content; ?></textarea>
+    </div> -->
+    <!-- <textarea name="content" id="kv-01" rows="15" class="markdown" required data-bs-version="3" data-theme="fa4" title="Krajee Markdown Editor">
+    <?php //echo $post->content; ?></textarea> -->
+    <?php include('includes/markdown_editor/editor.php') ?>
+    <textarea name="content" id="kv-01" rows="15" class="form-control markdown" required title="Krajee Markdown Editor" data-use-twemoji="true"><?php echo $post->content; ?></textarea>
+    <hr>
 
     <div class="form-group">
         <input class="btn btn-primary" type="submit" name="update" value="Publish Post">
+        <a class="btn btn-primary float-right" href="includes/markdown_editor/examples/bs4.html">Examples</a>
     </div>
 
 </form>

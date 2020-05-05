@@ -10,15 +10,15 @@
 
 ?>
 
-<div class="container">
+<div class="container mt-4">
     <div class="col-md-11">
             <?php foreach($posts as $post): ?>
             <h4><a class="text-secondary"  href="post.php?id=<?php echo $post->id; ?>"><?php echo $post->title; ?></a></h4>
 
                 <!-- <p class="float-right"><span class="glyphicon glyphicon-time"></span><?php echo $post->date; ?></p>
                 <p><?php echo substr($post->content,0,70); ?> -->
-                <a class="btn btn-primary float-right" href="post.php?id=<?php echo $post->id; ?>">Read More </a>
-                <br>
+                <!-- <a class="btn btn-primary float-right" href="post.php?id=<?php echo $post->id; ?>">Read More </a> -->
+                <h6 class="text-secondary float-right"><?php echo $post->date; ?></h6><br>
 <hr>
             <?php  endforeach; ?>
         <?php //include "includes/sidebar.php"; ?>
