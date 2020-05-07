@@ -43,6 +43,7 @@ if(isset($_POST['edit_sub'])) {
 <!-- HTMLの始まり -->
 
     <div class="col-sm-3">
+    <p class="bg-success"><?php echo $message; ?></p>
     <h1>Add Category</h1>
         <form action="" method="post">
             <div class="form-group">

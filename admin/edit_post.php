@@ -13,12 +13,13 @@
         //$post->image = $_POST['image'];
         $post->content = $_POST['content'];
         // $post->tags = $_POST['tags'];
-        // $post->status = $_POST['status'];
+        $post->status = $_POST['status'];
 
 
         $session->message("The post {$post->title} has been updated");
         //$post->upload_photo();
-        $post->save(); 
+        $post->save();
+        header("Location:post.php");
         //redirect("post.php");
 
     }
@@ -29,6 +30,12 @@
 <div class="col-md-9">
 <h1>Edit Post</h1>
 
+<script>
+
+
+</script>
+
+
 <form action="" method="post" enctype="multipart/form-data">
 
     <div class="form-group">
@@ -37,47 +44,51 @@
     </div>
 
     <div class="form-group">
-    <label for="category">Category</label>
-        <select class="form-control" id="number"  name='category_id'>
-                <?php 
-                    $sql = "SELECT * FROM categories";
-                    $categories = $database->query($sql);
-                    while($row = mysqli_fetch_assoc($categories)){
-                        if($row['id'] == $post->category_id) {
-                            echo "<option selected value='{$row['id']}'>{$row['name']}</option>";
-                        } else {
-                            echo "<option value='{$row['id']}'>{$row['name']}</option>";
-                        }
+        <label for="category">Category</label>
+        <select class="parent form-control" name="category_id" required>
+            <?php 
+                $sql = "SELECT * FROM categories";
+                $categories = $database->query($sql);
+                while($row = mysqli_fetch_assoc($categories)){
+                    if($row['id'] == $post->category_id) {
+                        echo "<option selected value='{$row['id']}'>{$row['name']}</option>";
+                    } else {
+                        echo "<option value='{$row['id']}'>{$row['name']}</option>";
                     }
-                ?>
-            </select>
+                }
+            ?>
+        </select>
     </div>
 
     <div class="form-group">
-    <label for="category">Sub Category</label>
-        <select class="form-control" id="number"  name='sub_category_id'>
+        <label for="sub_category">Sub Category</label>
+        <select class="children form-control" name="sub_category_id" required>
                 <?php 
                     $sql = "SELECT * FROM sub_categories";
                     $categories = $database->query($sql);
                     while($row = mysqli_fetch_assoc($categories)){
                         if($row['id'] == $post->sub_category_id) {
-                            echo "<option selected value='{$row['id']}'>{$row['name']}</option>";
+                            echo "<option selected value='{$row['id']}' data-val='{$row['cat_id']}'>{$row['name']}</option>";
                         } else {
-                            echo "<option value='{$row['id']}'>{$row['name']}</option>";
+                            echo "<option value='{$row['id']}' data-val='{$row['cat_id']}'>{$row['name']}</option>";
                         }
                     }
                 ?>
-            </select>
+        </select>
     </div>
 
-
-    <!-- <div class="form-group">
+    <div class="form-group">
         <select name="status" id="">
-            <option value="draft">Post Status</option>
-            <option value="published">Publish</option>
-            <option value="draft">Draft</option>
+            <option value='<?php echo $post->status; ?>'><?php echo $post->status; ?></option>
+            <?php
+                if($post->status == 'published' ) {
+                    echo "<option value='draft'>Draft</option>";
+                } else {
+                    echo "<option value='published'>Published</option>";
+                }
+            ?>
         </select>
-    </div> -->
+    </div>
 
     <!-- <div class="form-group">
         <label for="post_image">Post Image</label>

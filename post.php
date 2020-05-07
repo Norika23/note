@@ -20,8 +20,8 @@
                 <a href="post.php?p_id=<?php echo $post_id; ?>"></a>
 
                 <?php include('includes/markdown/show_markdown_link.php') ?>
-                    
-                <div class="note_content markdown-body"><?php echo $post->content; ?></div>
+
+                <div class="note_content markdown-body"><?php echo htmlentities($post->content); ?></div>
 
          <?php  endforeach; ?>
                 </div>

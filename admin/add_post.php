@@ -36,39 +36,41 @@
     </div>
 
     <div class="form-group">
-    <label for="category">Category</label>
-        <select class="form-control" id="number"  name='category_id'>
-                <?php 
-                    $sql = "SELECT * FROM categories";
-                    $categories = $database->query($sql);
-                    while($row = mysqli_fetch_assoc($categories)){
-                        echo "<option value='{$row['id']}'>{$row['name']}</option>";
-                    }
-                ?>
-            </select>
+        <label for="category">Category</label>
+        <select class="parent form-control" name="category_id" required>
+            <option value="" class="msg" disabled selected>Select Category</option>
+            <?php 
+                $sql = "SELECT * FROM categories";
+                $categories = $database->query($sql);
+                while($row = mysqli_fetch_assoc($categories)){
+                    echo "<option value='{$row['id']}'>{$row['name']}</option>";
+
+                }
+            ?>
+        </select>
     </div>
 
     <div class="form-group">
-    <label for="category">Sub Category</label>
-        <select class="form-control" id="number"  name='sub_category_id'>
+        <label for="sub_category">Sub Category</label>
+        <select class="children form-control" name="sub_category_id" disabled required>
                 <?php 
                     $sql = "SELECT * FROM sub_categories";
                     $categories = $database->query($sql);
                     while($row = mysqli_fetch_assoc($categories)){
-                        echo "<option value='{$row['id']}'>{$row['name']}</option>";
+                        echo "<option value='{$row['id']}' data-val='{$row['cat_id']}'>{$row['name']}</option>";
+                        
                     }
                 ?>
-            </select>
+        </select>
     </div>
 
-
-    <!-- <div class="form-group">
-        <select name="status" id="">
-            <option value="draft">Post Status</option>
+    <div class="form-group">
+        <select name="status" required>
+            <option value="">Post Status</option>
             <option value="published">Publish</option>
             <option value="draft">Draft</option>
         </select>
-    </div> -->
+    </div>
 
     <div class="form-group">
         <label for="post_image">Post Image</label>
